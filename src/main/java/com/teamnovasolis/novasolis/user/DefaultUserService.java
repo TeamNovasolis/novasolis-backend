@@ -3,11 +3,17 @@ package com.teamnovasolis.novasolis.user;
 import com.teamnovasolis.novasolis.user.exceptions.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DefaultUserService implements AbstractDefaultUserService {
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     private final UserEntityRepository userEntityRepository;
 

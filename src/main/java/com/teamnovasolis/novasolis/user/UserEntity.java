@@ -1,5 +1,6 @@
 package com.teamnovasolis.novasolis.user;
 
+import com.teamnovasolis.novasolis.validators.ValidEmail;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,6 +10,8 @@ import java.sql.Date;
 @Entity
 @Table(name = "NovasolisUser")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserEntity {
 
     @Id
@@ -16,6 +19,7 @@ public class UserEntity {
     @Column(name = "userId")
     private int id;
 
+    @ValidEmail
     @NotEmpty(message = "E-Mail is required")
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -30,4 +34,10 @@ public class UserEntity {
 
     @Column(name = "created_on")
     private Date createdOn = new Date(System.currentTimeMillis());
+
+    public UserEntity(UserEntityDto userEntityDto) {
+        this.email = userEntityDto.getEmail();
+        this.username = userEntityDto.getUsername();
+        this.password = userEntityDto.getPassword();
+    }
 }
