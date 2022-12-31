@@ -10,7 +10,7 @@ public class EmailValidator
         implements ConstraintValidator<ValidEmail, String> {
 
     // Simple regex for basic email validation
-    private static final String EMAIL_PATTERN = "^(.+)@(\\\\S+)$";
+    private static final String EMAIL_PATTERN = "^(.+)@(.+)$";
 
     @Override
     public void initialize(ValidEmail constraintAnnotation) {

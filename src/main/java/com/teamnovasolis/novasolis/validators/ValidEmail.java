@@ -1,6 +1,5 @@
 package com.teamnovasolis.novasolis.validators;
 
-import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import org.springframework.messaging.handler.annotation.Payload;
 
 import javax.validation.Constraint;

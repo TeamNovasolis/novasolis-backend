@@ -1,6 +1,7 @@
 package com.teamnovasolis.novasolis.user;
 
 import com.teamnovasolis.novasolis.user.exceptions.EmailExistsException;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public interface AbstractDefaultUserService {
 
@@ -10,14 +11,11 @@ public interface AbstractDefaultUserService {
     UserEntity getUserById(int id);
 
     /**
-     * Gets the user with the given username.
-     */
-    UserEntity getUserByUsername(String username);
-
-    /**
      * Gets the user with the given email.
      */
     UserEntity getUserByEmail(String email);
 
-    UserEntity registerNewUserAccount(UserEntity user) throws EmailExistsException;
+    UserEntity registerNewUserAccount(UserEntityDto user) throws EmailExistsException;
+
+    UserDetails loadUserByUsername(String email);
 }
