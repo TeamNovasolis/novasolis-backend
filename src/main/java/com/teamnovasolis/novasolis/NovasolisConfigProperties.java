@@ -1,8 +1,10 @@
 package com.teamnovasolis.novasolis;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
-@ConfigurationProperties("novasolis")
-public record NovasolisConfigProperties(String jwtSecret) {
+@ConfigurationProperties(prefix = "novasolis")
+@ConstructorBinding
+public record NovasolisConfigProperties(String jwtSecret, Long jwtExpire) {
 
 }
